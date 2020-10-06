@@ -6,10 +6,15 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/extern/crow/cmake") # add crow lib's cmake
 
-# Find common crow includes and make global for all subdirs
+# Find the packages
 find_package(BoostLib REQUIRED) # uses FindBoost.cmake in cmake dir
+find_package(CLI11 REQUIRED)
+
+
+# Include the package's header files
 include_directories("${CMAKE_CURRENT_SOURCE_DIR}/extern/crow/include") # contains header file for crow lib
-# TODO: eventually add CLI11 package
+include_directories(${CLI11_INCLUDE_DIR})
+
 
 
 # ===================================== Accept Build Mode for Debug/Release ========================================
