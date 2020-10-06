@@ -6,8 +6,6 @@
 *.lo
 *.o
 *.obj
-src/bin
-src/build
 
 # Precompiled Headers
 *.gch
@@ -32,3 +30,8 @@ src/build
 *.exe
 *.out
 *.app
+src/bin
+src/build
+
+# Editors
+.vscode/
