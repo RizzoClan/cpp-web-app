@@ -34,14 +34,13 @@ int main(int argc, char *argv[])
     crow::SimpleApp web_app;
 
     // store url in variable to pass around if needed
-    std::stringstream web_url;
-    web_url << "http://localhost:" << port;
+    std::string web_url = "http://localhost:" + std::to_string(port);
 
     CROW_ROUTE(web_app, "/")
     ([]() {
         return "Hello world!";
     });
 
-    cout << "Website is running at " << web_url.str() << endl;
+    cout << "Website is running at " << web_url << endl;
     web_app.port(port).run();
 }
