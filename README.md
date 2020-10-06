@@ -4,6 +4,8 @@ Uses "crow" microframework library to create a website using C++
 
 ## Install (Automate this later)
 
+Quick Install: `sudo ./install/setup.sh`
+
 ### Requirements from Crow
 
 * C++ compiler with good C++11 support (tested with g++>=4.8)
