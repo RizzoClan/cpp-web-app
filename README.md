@@ -2,7 +2,7 @@
 
 Uses "crow" microframework library to create a website using C++
 
-## Install (Automate this later)
+## Install
 
 Quick Install: `sudo ./install/setup.sh`
 
