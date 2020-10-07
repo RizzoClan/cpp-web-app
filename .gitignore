@@ -30,8 +30,8 @@
 *.exe
 *.out
 *.app
-src/bin
-src/build
+bin/
+build/
 
 # Editors
 .vscode/

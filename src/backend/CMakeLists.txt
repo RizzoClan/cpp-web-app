@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 2.8)
 project (backend)
 
-add_executable(web_app backendController.cpp)
+add_executable(web_app Backend_Controller.cpp)
 target_link_libraries(web_app ${Boost_LIBRARIES})
 target_link_libraries(web_app ${CMAKE_THREAD_LIBS_INIT})
 

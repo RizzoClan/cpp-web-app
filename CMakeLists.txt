@@ -3,7 +3,7 @@ project (Crow-Websites)
 
 # =================================== load Dependencies globally for all subdirs ===================================
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
-set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/src/cmake")
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/extern/crow/cmake") # add crow lib's cmake
 
 # Find the packages
@@ -26,4 +26,4 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/lib)
 
 # add more folders here as needed (i.e. frontend)
 # these trigger the CMakeLists.txt file to be called in the listed dirs
-add_subdirectory(backend)
+add_subdirectory(src/backend)
