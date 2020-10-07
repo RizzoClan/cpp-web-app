@@ -13,6 +13,7 @@ find_package(CLI11 REQUIRED)
 
 # Include the package's header files
 include_directories("${CMAKE_CURRENT_SOURCE_DIR}/extern/crow/include") # contains header file for crow lib
+include_directories("${CMAKE_CURRENT_SOURCE_DIR}/src/include") # contains OUR headers
 include_directories(${CLI11_INCLUDE_DIR})
 
 
