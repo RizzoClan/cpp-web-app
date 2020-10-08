@@ -14,9 +14,8 @@ int main(int argc, char *argv[])
 
     /* ********************** setup framework for web app using data taken in form command line **********************/
     crow::SimpleApp web_app;
-/*
     // store url in variable to pass around if needed
-    std::string web_url = "http://localhost:" + std::to_string(port);
+    std::string web_url = "http://localhost:" + flag_results["port"].get<std::string>();
 
     CROW_ROUTE(web_app, "/")
     ([]() {
@@ -24,6 +23,7 @@ int main(int argc, char *argv[])
     });
 
     cout << "Website is running at " << web_url << endl;
-    web_app.port(port).run();
-    */
+    web_app.port(
+        std::atoi(flag_results["port"].get<std::string>().c_str())
+    ).run();
 }

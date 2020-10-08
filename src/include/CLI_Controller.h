@@ -25,6 +25,7 @@ class CLI_Parser {
          *      parser_description: Description of the parser
          *      argc: The number of arguments
          *      argv: The arguments
+         * @Return: json containing collated flag results. May need to convert "values" using .get<T>() on elements
          * @Note: These arguments should be taken directly from int main(argc, argv)
          * @Note: using CLI11 for command-line parsing: https://cliutils.gitlab.io/CLI11Tutorial/
          */
