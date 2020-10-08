@@ -4,6 +4,7 @@ project (backend)
 add_executable(web_app
     Backend_Controller.cpp
     CLI_Controller.cpp
+    web_app.cpp
 )
 target_link_libraries(web_app ${Boost_LIBRARIES})
 target_link_libraries(web_app ${CMAKE_THREAD_LIBS_INIT})
