@@ -31,3 +31,4 @@ release: ./release/Makefile
 clean:
 	@- $(RM) ./build/ 
 	@- $(RM) ./release/
+	@- $(RM) ./bin/
