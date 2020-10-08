@@ -5,10 +5,10 @@ CLI_Parser::CLI_Parser() {
     // empty for now
 }
 
-crow::json::wvalue CLI_Parser::parse_flags(int argc, char* argv[], std::string parser_name) const {
+nlohmann::json CLI_Parser::parse_flags(int argc, char* argv[], std::string parser_name) const {
     CLI::App cli_parser(parser_name);
 
-    crow::json::wvalue flag_results;
+    nlohmann::json flag_results;
 
     // create flags
     int port = 8080;

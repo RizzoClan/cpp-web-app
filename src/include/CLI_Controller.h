@@ -9,6 +9,7 @@
 // 3rd Party Includes
 #include "crow.h"
 #include "CLI11.hpp"
+#include <json.hpp>
 
 // Our Includes
 
@@ -27,7 +28,7 @@ class CLI_Parser {
          * @Note: These arguments should be taken directly from int main(argc, argv)
          * @Note: using CLI11 for command-line parsing: https://cliutils.gitlab.io/CLI11Tutorial/
          */
-        crow::json::wvalue parse_flags(int argc, char* argv[], std::string parser_name) const;
+        nlohmann::json parse_flags(int argc, char* argv[], std::string parser_name) const;
 
     private:
         // crow::json::wvalue parse_flags(int argc, char* argv[], std::string parser_name) const;

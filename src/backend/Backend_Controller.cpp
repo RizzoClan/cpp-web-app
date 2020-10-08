@@ -9,8 +9,7 @@ int main(int argc, char *argv[])
 {
     /******************* Create CLI Parser with Neccessary Flags (declare variables ahead of time) *******************/
     CLI_Parser flag_parser;
-    flag_parser.parse_flags(argc, argv, "Basic Crow Web App");
-    // crow::json::wvalue flag_res = flag_parser.get_flag_results();
+    nlohmann::json flag_results = flag_parser.parse_flags(argc, argv, "Basic Crow Web App");
 
 
     /* ********************** setup framework for web app using data taken in form command line **********************/
