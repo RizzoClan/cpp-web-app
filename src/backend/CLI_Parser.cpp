@@ -15,18 +15,18 @@ nlohmann::json CLI_Parser::parse_flags(int argc, char* argv[], std::string parse
 
     nlohmann::json flag_results;
 
-    /* =============================================== create flags =============================================== */
+    /* =============================================== Create flags =============================================== */
     parser.add_option("-p,--port", flag_results[PORT_FLAG_NAME])
         ->description("Set the port to open the web app on")
         ->check(CLI::Range(1024, 65535), "Must select a valid port in the range")
         ->default_val(DEFAULT_PORT);
 
     bool dont_print_sites; // false if flag used
-    parser.add_flag("-b,--bool", dont_print_sites)
-        ->description("Don't print out generated sites urls")
+    parser.add_flag("--dont-print-sites", dont_print_sites)
+        ->description("Don't print out generated sites' urls")
         ->default_val(false);
 
-    /* ============================================ actually parse flags =========================================== */
+    /* ============================================ Actually parse flags =========================================== */
     try {
         parser.parse(argc, argv);
     } catch  (const CLI::ParseError &e) {
@@ -34,6 +34,7 @@ nlohmann::json CLI_Parser::parse_flags(int argc, char* argv[], std::string parse
         exit(EXIT_FAILURE);
     }
 
+    /* ========================================= Manipulate results for json ======================================= */
     flag_results[PRINT_FLAG_NAME] = !dont_print_sites;
 
     // return results
