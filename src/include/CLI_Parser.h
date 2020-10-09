@@ -12,6 +12,7 @@
 #include <json.hpp>
 
 // Our Includes
+#include "constants.h"
 
 class CLI_Parser {
     public:
@@ -19,7 +20,7 @@ class CLI_Parser {
         CLI_Parser();
 
         /**
-         * @Brief: Constructor that inately parses command line flags. Access results with "get_results()"
+         * @Brief: Parses command line flags and returns results in json"
          * @Args:
          *      name: the name of the parser
          *      parser_description: Description of the parser
@@ -31,8 +32,6 @@ class CLI_Parser {
          */
         nlohmann::json parse_flags(int argc, char* argv[], std::string parser_name) const;
 
-    private:
-        // crow::json::wvalue parse_flags(int argc, char* argv[], std::string parser_name) const;
 };
 
 #endif
