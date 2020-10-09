@@ -21,7 +21,9 @@ BackendController::BackendController(int argc, char* argv[])
 }
 
 void BackendController::print_urls() {
-    cout << "Website is running at " << web_url << endl;
+    cout << "Website is running at the following sites:" << endl;
+    // for(auto& : )
+    //  web_url << endl;
 }
 
 /* ============================================== Web Route Functions ============================================== */
@@ -48,7 +50,7 @@ void BackendController::create_web_routes() {
 }
 
 void BackendController::setup_test_route() {
-    CROW_ROUTE(web_app, "/")
+    web_app.route_dynamic(SITE_URLS[TEST_PAGE].get<std::string>())
     ([]() {
         return "Hello world!";
     });
