@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
 {
     /************************ setup framework for web app using data taken in form command line **********************/
     // create object & parses command line flags
-    BackendController app(argc, argv, true);
+    BackendController app(argc, argv);
 
     // setup all websites
     app.create_web_routes();

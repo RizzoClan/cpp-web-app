@@ -7,7 +7,7 @@ using std::endl;
 
 /* =============================================== Constructors ==================================================== */
 
-BackendController::BackendController(int argc, char* argv[], bool shouldPrintUrls)
+BackendController::BackendController(int argc, char* argv[])
 : flag_results(parse_flags(argc, argv, CLI_PARSER_NAME)) // Create CLI Parser with Neccessary Flags
 {
     /* =============================== variables that need more info to declare ================================ */
@@ -17,7 +17,7 @@ BackendController::BackendController(int argc, char* argv[], bool shouldPrintUrl
 
     // flags
     areRoutesInitialized = false; // set true at end of init
-    _shouldPrintUrls = shouldPrintUrls;
+    _shouldPrintUrls = flag_results[PRINT_FLAG_NAME].get<bool>(); // defaults to false
 }
 
 void BackendController::print_urls() {
