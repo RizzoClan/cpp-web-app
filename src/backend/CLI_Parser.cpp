@@ -1,25 +1,41 @@
 // Our Includes
 #include "CLI_Parser.h"
 
+// local namespace modifications
+using std::cout;
+using std::cerr;
+using std::endl;
+
 CLI_Parser::CLI_Parser() {
     // empty for now
 }
 
 nlohmann::json CLI_Parser::parse_flags(int argc, char* argv[], std::string parser_name) const {
-    CLI::App cli_parser(parser_name);
+    CLI::App parser(parser_name);
 
     nlohmann::json flag_results;
 
-    // create flags
-    int port = 8080;
-    // cli_parser.add_option("-p,--port", flag_results["port"], "Set the port to open the web app on")
-    cli_parser.add_option("-p,--port", flag_results["port"], "Set the port to open the web app on")
+    /* =============================================== Create flags =============================================== */
+    parser.add_option("-p,--port", flag_results[PORT_FLAG_NAME])
+        ->description("Set the port to open the web app on")
         ->check(CLI::Range(1024, 65535), "Must select a valid port in the range")
-        ->default_val(8080);
+        ->default_val(DEFAULT_PORT);
 
-    // actually parse flags
-    cli_parser.parse(argc, argv);
-    // CLI11_PARSE(cli_parser, argc, argv); // cant use this due to throwing errors outside of int main()
+    bool dont_print_sites; // false if flag used
+    parser.add_flag("--dont-print-sites", dont_print_sites)
+        ->description("Don't print out generated sites' urls")
+        ->default_val(false);
+
+    /* ============================================ Actually parse flags =========================================== */
+    try {
+        parser.parse(argc, argv);
+    } catch  (const CLI::ParseError &e) {
+        parser.exit(e); // handles printing of error messages
+        exit(EXIT_FAILURE);
+    }
+
+    /* ========================================= Manipulate results for json ======================================= */
+    flag_results[PRINT_FLAG_NAME] = !dont_print_sites;
 
     // return results
     return flag_results;

@@ -18,7 +18,7 @@
 // make CLI_Parser private so that main cannot double call functions it should not
 class BackendController : private CLI_Parser {
     public:
-        BackendController(int argc, char* argv[], bool shouldPrintUrls=true);
+        BackendController(int argc, char* argv[]);
         /**
          * @Brief: Wrapper for all private functions that create routes for all the websites
          */
