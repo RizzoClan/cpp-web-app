@@ -3,7 +3,7 @@ project (backend)
 
 add_executable(web_app
     Backend_Controller.cpp
-    CLI_Controller.cpp
+    CLI_Parser.cpp
     web_app.cpp
 )
 target_link_libraries(web_app ${Boost_LIBRARIES})
