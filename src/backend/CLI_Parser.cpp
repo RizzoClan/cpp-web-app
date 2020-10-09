@@ -16,7 +16,15 @@ nlohmann::json CLI_Parser::parse_flags(int argc, char* argv[], std::string parse
         ->default_val(DEFAULT_PORT);
 
     /* ============================================ actually parse flags =========================================== */
-    cli_parser.parse(argc, argv);
+    try {
+        parser.parse(argc, argv);
+    } catch  (const CLI::ParseError &e) {
+        parser.exit(e); // handles printing of error messages
+        exit(EXIT_FAILURE);
+    }
+
+    cout << "dont_print_sites after: " << dont_print_sites << endl;
+    // flag_results[PRINT_FLAG_NAME] = !dont_print_sites;
 
     // return results
     return flag_results;
