@@ -12,8 +12,8 @@ BackendController::BackendController(int argc, char* argv[])
 {
     /* =============================== variables that need more info to declare ================================ */
     // store url in variable to pass around if needed
-    web_url = URL_BASE + flag_results["port"].get<std::string>();
     port = std::atoi(flag_results["port"].get<std::string>().c_str());
+    web_url = URL_BASE + std::to_string(port);
 
     // flags
     areRoutesInitialized = false; // set true at end of init
@@ -22,8 +22,9 @@ BackendController::BackendController(int argc, char* argv[])
 
 void BackendController::print_urls() {
     cout << "Website is running at the following sites:" << endl;
-    // for(auto& : )
-    //  web_url << endl;
+    for(auto& url_suffix : SITE_URLS) {
+        cout << web_url + url_suffix.get<std::string>() << endl;
+    }
 }
 
 /* ============================================== Web Route Functions ============================================== */
