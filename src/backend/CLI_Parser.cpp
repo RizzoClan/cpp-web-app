@@ -10,16 +10,13 @@ nlohmann::json CLI_Parser::parse_flags(int argc, char* argv[], std::string parse
 
     nlohmann::json flag_results;
 
-    // create flags
-    int port = 8080;
-    // cli_parser.add_option("-p,--port", flag_results["port"], "Set the port to open the web app on")
-    cli_parser.add_option("-p,--port", flag_results["port"], "Set the port to open the web app on")
+    /* =============================================== create flags =============================================== */
+    cli_parser.add_option("-p,--port", flag_results[PORT_FLAG_NAME], "Set the port to open the web app on")
         ->check(CLI::Range(1024, 65535), "Must select a valid port in the range")
-        ->default_val(8080);
+        ->default_val(DEFAULT_PORT);
 
-    // actually parse flags
+    /* ============================================ actually parse flags =========================================== */
     cli_parser.parse(argc, argv);
-    // CLI11_PARSE(cli_parser, argc, argv); // cant use this due to throwing errors outside of int main()
 
     // return results
     return flag_results;
